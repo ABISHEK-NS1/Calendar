@@ -12,6 +12,7 @@
 
 - Monthly calendar view
 - Add events with title, time, duration, and optional end date
+- Update / Delete the events by clicking on the respective pill
 - Four priority levels: Critical, High, Medium, Low
 - Dark mode toggle 🌙 / 🌞
 - View and filter all upcoming events
