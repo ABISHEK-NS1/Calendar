@@ -1,12 +1,48 @@
-# React + Vite
+## React Calendar & Events Manager
+# A simple and responsive calendar + event manager built with React and Day.js. Users can:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- View a full monthly calendar
+- Add, edit, or delete events
+- Prioritize events by color
+- Toggle light/dark mode
+- Filter upcoming events by priority and date range
 
-Currently, two official plugins are available:
+## Features
+- Monthly calendar view
+- Add events with title, time, duration, and optional end date
+- Four priority levels: Critical, High, Medium, Low
+- Dark mode toggle 🌙 / 🌞
+- View and filter all upcoming events
+- Responsive for mobile and desktop
+- Events are saved to localStorage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Folder Structure
 
-## Expanding the ESLint configuration
+ src
+ |- components
+ | |- Calendar.jsx
+ | |-  EventsList.jsx
+ |- data
+ | |- events.json
+ |- styles
+ | |- calendar.css
+ | |- events.css
+ |- App.jsx
+ |- main.jsx
+ |- index.css
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+### Getting started
+
+## 1. Clone the Repository
+
+# git clone https://github.com/your-username/react-calendar-events.git
+# cd react-calendar-events
+
+## 2. Install Dependencies
+
+# npm install
+
+## 3. Run the App
+
+# npm run dev
