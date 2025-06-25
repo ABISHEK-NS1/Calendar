@@ -11,6 +11,7 @@ const EventsList = () => {
   const [priorityFilter, setPriorityFilter] = useState("All");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [showUploadModal, setShowUploadModal] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("calendarEvents");
@@ -53,10 +54,89 @@ const EventsList = () => {
     );
   });
 
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const uploadedEvents = JSON.parse(event.target.result);
+        if (Array.isArray(uploadedEvents)) {
+          setEvents(uploadedEvents);
+          localStorage.setItem(
+            "calendarEvents",
+            JSON.stringify(uploadedEvents)
+          );
+          alert("Events uploaded successfully!");
+        } else {
+          alert("Invalid JSON format. Expected an array of events.");
+        }
+      } catch (error) {
+        alert("Failed to parse the JSON file.");
+      }
+    };
+
+    reader.readAsText(file);
+  };
+
   return (
     <div className="events-list-container">
       <h2 className="events-list-title">📅 Upcoming Events</h2>
+      <div className="upload-section">
+        <button
+          htmlFor="eventUpload"
+          className="upload-button"
+          onClick={() => setShowUploadModal(true)}
+        >
+          Upload Events
+        </button>
+        {showUploadModal && (
+          <div className="modal-overlay">
+            <div className="modal upload-modal">
+              <h3>Upload Events (JSON Format)</h3>
+              <input type="file" accept=".json" onChange={handleFileUpload} />
 
+              <div className="sample-json">
+                <p>
+                  <strong>Sample Format:</strong>
+                </p>
+                <pre>
+                  {`[
+    {
+      "title": "Team Meeting",
+      "date": "2025-07-01",
+      "time": "10:00",
+      "duration": "1h",
+      "endDate": "2025-07-01",
+      "color": "#3b82f6"
+    },
+    {
+      "title": "Project Deadline",
+      "date": "2025-07-03",
+      "time": "23:59",
+      "duration": "All Day",
+      "color": "#dc2626"
+    }
+  ]`}
+                </pre>
+              </div>
+
+              <div className="modal-buttons">
+                <button onClick={() => setShowUploadModal(false)}>Close</button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <input
+          id="eventUpload"
+          type="file"
+          accept="application/json"
+          onChange={handleFileUpload}
+          style={{ display: "none" }}
+        />
+      </div>
       <div className="filters-container">
         <select
           className="filter-dropdown"
@@ -83,7 +163,6 @@ const EventsList = () => {
           onChange={(e) => setEndDate(e.target.value)}
         />
       </div>
-
       {filteredEvents.length === 0 ? (
         <p className="no-events">No upcoming events.</p>
       ) : (
