@@ -1,4 +1,5 @@
 ## React Calendar & Events Manager
+
 # A simple and responsive calendar + event manager built with React and Day.js. Users can:
 
 - View a full monthly calendar
@@ -8,6 +9,7 @@
 - Filter upcoming events by priority and date range
 
 ## Features
+
 - Monthly calendar view
 - Add events with title, time, duration, and optional end date
 - Four priority levels: Critical, High, Medium, Low
@@ -18,31 +20,30 @@
 
 ## Folder Structure
 
- src
- |- components
- | |- Calendar.jsx
- | |-  EventsList.jsx
- |- data
- | |- events.json
- |- styles
- | |- calendar.css
- | |- events.css
- |- App.jsx
- |- main.jsx
- |- index.css
-
+<pre>```src/
+├── components/
+│   ├── Calendar.jsx
+│   └── EventsList.jsx
+├── data/
+│   └── events.json
+├── styles/
+│   ├── calendar.css
+│   └── events.css
+├── App.jsx
+├── main.jsx
+└── index.css```</pre>
 
 ### Getting started
 
 ## 1. Clone the Repository
 
-# git clone https://github.com/your-username/react-calendar-events.git
-# cd react-calendar-events
+git clone https://github.com/your-username/react-calendar-events.git
+cd react-calendar-events
 
 ## 2. Install Dependencies
 
-# npm install
+npm install
 
 ## 3. Run the App
 
-# npm run dev
+npm run dev
