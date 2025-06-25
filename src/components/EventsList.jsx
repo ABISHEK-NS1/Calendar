@@ -59,21 +59,32 @@ const EventsList = () => {
     if (!file) return;
 
     const reader = new FileReader();
+
     reader.onload = (event) => {
       try {
         const uploadedEvents = JSON.parse(event.target.result);
-        if (Array.isArray(uploadedEvents)) {
-          setEvents(uploadedEvents);
-          localStorage.setItem(
-            "calendarEvents",
-            JSON.stringify(uploadedEvents)
-          );
-          alert("Events uploaded successfully!");
-        } else {
-          alert("Invalid JSON format. Expected an array of events.");
+
+        if (!Array.isArray(uploadedEvents)) {
+          alert("Invalid file format. Must be an array of events.");
+          return;
         }
-      } catch (error) {
-        alert("Failed to parse the JSON file.");
+
+        const mergedEvents = [
+          ...events,
+          ...uploadedEvents.filter(
+            (newEv) =>
+              !events.some(
+                (ev) => ev.title === newEv.title && ev.date === newEv.date
+              )
+          ),
+        ];
+        setEvents(mergedEvents);
+        localStorage.setItem("calendarEvents", JSON.stringify(mergedEvents));
+
+        alert("Events uploaded successfully!");
+      } catch (err) {
+        alert("Failed to parse JSON file.");
+        console.error(err);
       }
     };
 
