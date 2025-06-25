@@ -20,7 +20,7 @@
 
 ## Folder Structure
 
-<pre>```src/
+<pre>src/
 ├── components/
 │   ├── Calendar.jsx
 │   └── EventsList.jsx
@@ -31,14 +31,14 @@
 │   └── events.css
 ├── App.jsx
 ├── main.jsx
-└── index.css```</pre>
+└── index.css</pre>
 
 ### Getting started
 
 ## 1. Clone the Repository
 
-git clone https://github.com/your-username/react-calendar-events.git
-cd react-calendar-events
+<pre>git clone https://github.com/your-username/react-calendar-events.git
+cd react-calendar-events</pre>
 
 ## 2. Install Dependencies
 
