@@ -57,7 +57,6 @@ const EventsList = () => {
     <div className="events-list-container">
       <h2 className="events-list-title">📅 Upcoming Events</h2>
 
-      {/* 🔍 Filters */}
       <div className="filters-container">
         <select
           className="filter-dropdown"
@@ -85,7 +84,6 @@ const EventsList = () => {
         />
       </div>
 
-      {/* 📋 Events */}
       {filteredEvents.length === 0 ? (
         <p className="no-events">No upcoming events.</p>
       ) : (
