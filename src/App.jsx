@@ -3,7 +3,8 @@ import "./index.css";
 import { useState } from "react";
 import EventsList from "./components/EventsList";
 import { useEffect } from "react";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
+import { RiCalendarScheduleFill } from "react-icons/ri";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -20,14 +21,24 @@ export default function App() {
   return (
     <div className={`app-container ${darkMode ? "dark" : "light"}`}>
       <div className="mode-toggle">
-        <button onClick={() => setDarkMode(!darkMode)}>
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          style={{ fontSize: "30px" }}
+        >
           {darkMode ? "🌞" : "🌙"}
         </button>
       </div>
 
       <div className="view-toggle">
-        <button onClick={() => setView("calendar")}>📅 Calendar</button>
-        <button onClick={() => setView("events")}>🗂️ Events</button>
+        <button onClick={() => setView("calendar")}>
+          <FaCalendarAlt />
+          <br></br>
+          Calendar
+        </button>
+        <button onClick={() => setView("events")}>
+          <RiCalendarScheduleFill />
+          <br></br> Events
+        </button>
       </div>
 
       {view === "calendar" ? (

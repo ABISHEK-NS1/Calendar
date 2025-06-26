@@ -221,18 +221,18 @@ export default function Calendar({ darkMode }) {
               }
             />
             <input
-              type="time"
-              value={newEvent.time}
-              onChange={(e) =>
-                setNewEvent({ ...newEvent, time: e.target.value })
-              }
-            />
-            <input
               type="text"
               placeholder="Duration (e.g. 1h)"
               value={newEvent.duration}
               onChange={(e) =>
                 setNewEvent({ ...newEvent, duration: e.target.value })
+              }
+            />
+            <input
+              type="time"
+              value={newEvent.time}
+              onChange={(e) =>
+                setNewEvent({ ...newEvent, time: e.target.value })
               }
             />
             <input

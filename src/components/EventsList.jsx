@@ -93,7 +93,7 @@ const EventsList = () => {
 
   return (
     <div className="events-list-container">
-      <h2 className="events-list-title">📅 Upcoming Events</h2>
+      <h2 className="events-list-title">Upcoming Events</h2>
       <div className="upload-section">
         <button
           htmlFor="eventUpload"
